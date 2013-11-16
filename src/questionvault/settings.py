@@ -40,7 +40,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'project_template.urls'
+ROOT_URLCONF = 'questionvault.urls'
 
 WSGI_APPLICATION = 'project_template.wsgi.application'
 
@@ -77,8 +77,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATIC_ROOT = "static"
+STATIC_ROOT = os.path.abspath(__file__ + "/../../static")
 
 # Additional locations of static files
 STATICFILES_DIRS = (
