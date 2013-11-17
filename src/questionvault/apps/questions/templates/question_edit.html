@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main %}
+<form action="." method="POST" id="question_form">{% csrf_token %}
+    <h2> Question </h2>
+    {{ question_form.as_p }}
+    <h2> Answers </h2>
+    <p>
+      {{ formset }}
+    </p>
+    <div class="form_buttons">
+      <button type="submit" name="confirm" id="confirm">
+        <span>Submit</span>
+      </button>
+    </div>
+</form>
+{% endblock %}

@@ -1,5 +1,5 @@
 """
-Django settings for project_template project.
+Django settings for questionvault project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'questionvault.apps.questions',
     'south',
     'compressor',
     'devserver',
@@ -42,7 +43,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'questionvault.urls'
 
-WSGI_APPLICATION = 'project_template.wsgi.application'
+WSGI_APPLICATION = 'questionvault.wsgi.application'
 
 
 # Database
