@@ -1,0 +1,89 @@
+$split-view-margin: 50%;
+$qtitle-input-width: 80%;
+$qna-padding: 1.5em;
+
+/*
+ * Html elements
+ */
+h2{
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+section{
+    margin-bottom: 2em;
+}
+
+textarea, input{
+    border-radius: 2px; /* TODO use mixin */
+    border: 1px solid #A8A8A8;
+    width: 100%;
+}
+
+
+/*
+ * Id specific
+ */
+#question_form{
+    width: 80%;
+    margin: 2em auto;
+}
+
+#question-title{
+    text-align: center;
+    margin-bottom: 2em;
+
+    input{
+        width: $qtitle-input-width;
+        line-height: 1.3em;
+        padding: 0.2em;
+        font-size: 1.1em;
+    }
+    
+    label{
+        width: 100% - $qtitle-input-width;
+        text-align: right;
+        font-size: 1.2em;
+    }
+}
+
+#question-area{
+    width: $split-view-margin;
+    float: left;
+    padding-right: $qna-padding;
+}
+
+#answer-area{
+    margin-left: $split-view-margin;
+    padding-left: $qna-padding;
+}
+
+
+/* 
+ * Class specific
+ */
+
+.answer{
+    border: 2px solid #C7B1B1;
+    border-radius: 5px;
+    padding: 1em;
+    padding-right: 2em;
+    margin-bottom: 2em;
+
+    textarea{
+        height: 6em;
+    }
+}
+
+$answer-selector-width: 10%;
+
+.answer-selector{
+    float: left;
+    width: $answer-selector-width;
+    margin-top: 7em; /* FIXME */
+}
+
+.answer-content{
+    width: 100% - $answer-selector-width;
+    margin-left: $answer-selector-width;
+}

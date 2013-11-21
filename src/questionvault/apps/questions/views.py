@@ -12,7 +12,6 @@ def edit_question(request):
          Question, Answer, formset=AnswerFormSet, extra=4, max_num=4)
 #    question = Question()
     if request.method == 'POST':
-
         question_form = QuestionForm(request.POST)
         answer_formset = AnswerFormset(request.POST)
         

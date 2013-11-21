@@ -7,21 +7,21 @@ class Question(models.Model):
     """
 
     # TODO we will eventually want richer question formats
-    text = models.TextField()
-    solution = models.TextField()
+    text = models.TextField(verbose_name="question text")
+    title = models.CharField(max_length=1000, verbose_name="question title")
 
     def __unicode__(self):
         return self.text + ": " + self.solution
+
 
 class Answer(models.Model):
     """
     Basic text-based answer option for multiple choice questions
     """    
     question = models.ForeignKey(Question)
-    text = models.CharField(max_length=1000)
-    explanation = models.TextField()
+    text = models.TextField(max_length=1000, verbose_name="displayed answer")
+    explanation = models.TextField(verbose_name="Explanation")
     is_correct = models.BooleanField(default=False)
-
 
     def __unicode__(self):
         ret_txt = ""

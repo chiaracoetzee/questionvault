@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'project_template.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
             url(r'^$', TemplateView.as_view(template_name="landing.html")),
-            url(r'^questions/', include('questionvault.apps.questions.urls', namespace='questions')),
+            url(r'^q/', include('questionvault.apps.questions.urls', namespace='questions')),
             url(r'^admin/', include(admin.site.urls)),
 )
 

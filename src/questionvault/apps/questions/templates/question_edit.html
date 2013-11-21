@@ -1,17 +1,62 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+{% block extend-css %}
+<link href="{% static "scss/qna.scss"%}" type="text/x-scss" rel="stylesheet" />
+{% endblock %}
 
 {% block main %}
-<form action="." method="POST" id="question_form">{% csrf_token %}
-    <h2> Question </h2>
-    {{ question_form.as_p }}
+<form action="" method="POST" id="question_form">{% csrf_token %}
+  <section id="question-title">
+    <label for="id_title">
+      Title:
+    </label>
+    {{ question_form.title }}
+  </section>
+
+  <section id="errors">
+    <!-- FIXME -->
+  {% for error in formset.errors %}
+    <div>
+      {{ error }}
+    </div>
+  {% endfor %}
+  </section>
+  
+  <section id="question-area">
+      <h2> Question </h2>
+      {{ question_form.text }}
+  </section>
+
+  <section id="answer-area">
     <h2> Answers </h2>
-    <p>
-      {{ formset }}
-    </p>
+    {{formset.management_form}}
+    {% for form in formset %}
+    <div class="answer">
+
+      <div class="answer-selector">
+        {{ form.is_correct }}
+      </div>
+      
+      <div class="answer-content">
+        <div>
+          {{ form.text.label }}
+          {{ form.text }}
+        </div>
+        
+        <div>
+          {{ form.explanation.label }}
+          {{ form.explanation }}
+        </div>
+      </div>      
+    </div>
+    
+    {% endfor %}
     <div class="form_buttons">
       <button type="submit" name="confirm" id="confirm">
         <span>Submit</span>
       </button>
     </div>
+  </section>
 </form>
 {% endblock %}

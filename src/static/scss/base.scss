@@ -2,6 +2,11 @@ $font-stack: Helvetica;
 $primary-color: #333;
 $primary-bcolor: #FDFDFD;
 
+/* apply a natural box layout model to all elements -- see Paul Irish*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
 body {
   font: 100% $font-stack;
   color: $primary-color;
