@@ -11,7 +11,7 @@ class Question(models.Model):
     title = models.CharField(max_length=1000, verbose_name="question title")
 
     def __unicode__(self):
-        return self.text + ": " + self.solution
+        return self.title + ": " + self.text
 
 
 class Answer(models.Model):
@@ -25,9 +25,9 @@ class Answer(models.Model):
 
     def __unicode__(self):
         ret_txt = ""
-        if self.correct:
+        if self.is_correct:
             ret_txt += "[correct]   :"
         else:
             ret_txt += "[incorrect] :"
-        return ret_txt + self.text + "(explanation: " + self.explanation + ")\n For question: " + question.text + "\n"
+        return ret_txt + self.text + "(explanation: " + self.explanation + ")\n"
     
