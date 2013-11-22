@@ -28,8 +28,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'questionvault.apps.questions',
     'south',
-    'compressor',
-    'devserver',
+    'compressor'
 )
 
 MIDDLEWARE_CLASSES = (

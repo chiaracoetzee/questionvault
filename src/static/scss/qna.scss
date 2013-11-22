@@ -2,9 +2,9 @@ $split-view-margin: 50%;
 $qtitle-input-width: 80%;
 $qna-padding: 1.5em;
 
-/*
- * Html elements
- */
+//
+// HTML Elements
+//
 h2{
     font-size: 1.2em;
     margin-bottom: 0.5em;
@@ -21,9 +21,10 @@ textarea, input{
 }
 
 
-/*
- * Id specific
- */
+//
+// Id specific
+//
+
 #question_form{
     width: 80%;
     margin: 2em auto;
@@ -59,9 +60,9 @@ textarea, input{
 }
 
 
-/* 
- * Class specific
- */
+// 
+// Class specific
+//
 
 .answer{
     border: 2px solid #C7B1B1;
