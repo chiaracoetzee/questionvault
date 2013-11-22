@@ -14,8 +14,9 @@ def edit_question(request):
          Question, Answer, formset=AnswerFormSet, extra=4, max_num=4)
 #    question = Question()
     if request.method == 'POST':
-        question_form = QuestionForm(request.POST)
-        answer_formset = AnswerFormset(request.POST)
+        question = Question()
+        question_form = QuestionForm(request.POST, instance=question)
+        answer_formset = AnswerFormset(request.POST, instance=question)
         
         # Check these separately to avoid short-circuiting
         question_valid = question_form.is_valid()
@@ -23,7 +24,6 @@ def edit_question(request):
         
         if question_valid and answer_valid:
             question_form.save()
-            # No need to add new question as it was already set as the instance above
             answer_formset.save()
             return HttpResponse(status=200) # TODO redirect to something worthwhile
 
@@ -33,7 +33,9 @@ def edit_question(request):
     elif request.method:
         return HttpResponse(status=405)
 
-    return render_to_response("question_edit.html", {"formset": answer_formset, "question_form": question_form}, context_instance=RequestContext(request))
+    return render_to_response("question_edit.html",
+                              {"formset": answer_formset, "question_form": question_form},
+                              context_instance=RequestContext(request))
 
 
 
