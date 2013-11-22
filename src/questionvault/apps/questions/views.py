@@ -25,7 +25,7 @@ def edit_question(request):
         if question_valid and answer_valid:
             question_form.save()
             answer_formset.save()
-            return HttpResponse(status=200) # TODO redirect to something worthwhile
+            return HttpResponse("<html><body>question accepted <--TODO something sensible</body></html>") # TODO redirect to something worthwhile
 
     elif request.method == 'GET':
         answer_formset = AnswerFormset()
