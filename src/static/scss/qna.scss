@@ -40,7 +40,7 @@ textarea, input{
         padding: 0.2em;
         font-size: 1.1em;
     }
-    
+
     label{
         width: 100% - $qtitle-input-width;
         text-align: right;
@@ -60,7 +60,7 @@ textarea, input{
 }
 
 
-// 
+//
 // Class specific
 //
 
@@ -81,10 +81,39 @@ $answer-selector-width: 10%;
 .answer-selector{
     float: left;
     width: $answer-selector-width;
-    margin-top: 7em; /* FIXME */
+    margin-top: 4em;  // FIXME hardcoding is bad m'kay?
 }
 
 .answer-content{
     width: 100% - $answer-selector-width;
     margin-left: $answer-selector-width;
+}
+
+.explanation{
+
+    margin-top: 1em;
+
+    & .collapse-label{
+        cursor: pointer;
+    }
+
+    & .ion-ios7-arrow-down{
+        display: none;
+    }
+
+    &.expand .ion-ios7-arrow-down{
+        display: inline-block;
+    }
+
+    &.expand .collapse-label .ion-ios7-arrow-forward{
+        display: none;
+    }
+
+    & textarea{
+        display: none;
+    }
+
+    &.expand textarea{
+        display: block;
+    }
 }

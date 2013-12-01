@@ -2,7 +2,12 @@
 {% load staticfiles %}
 
 {% block extend-css %}
+<link href="{% static "css/lib/ionicons.css"%}" type="text/css" rel="stylesheet" />
 <link href="{% static "scss/qna.scss"%}" type="text/x-scss" rel="stylesheet" />
+{% endblock %}
+
+{% block extend-js %}
+<script src="{% static "js/qedit.js" %}"></script>
 {% endblock %}
 
 {% block main %}
@@ -22,7 +27,7 @@
     </div>
   {% endfor %}
   </section>
-  
+
   <section id="question-area">
       <h2> Question </h2>
       {{ question_form.text }}
@@ -37,20 +42,22 @@
       <div class="answer-selector">
         {{ form.is_correct }}
       </div>
-      
+
       <div class="answer-content">
-        <div>
+        <div class="answer-text">
           {{ form.text.label }}
           {{ form.text }}
         </div>
-        
-        <div>
-          {{ form.explanation.label }}
+
+        <div class="explanation">
+          <div class="collapse-label">
+            {{ form.explanation.label }} (recommended) <i class="icon ion-ios7-arrow-down"></i> <i class="icon ion-ios7-arrow-forward"></i>
+          </div>
           {{ form.explanation }}
         </div>
-      </div>      
+      </div>
     </div>
-    
+
     {% endfor %}
     <div class="form_buttons">
       <button type="submit" name="confirm" id="confirm">
